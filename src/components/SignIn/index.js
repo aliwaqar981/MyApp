@@ -18,13 +18,11 @@ export default class SignIn extends Component {
   }
 
   render() {
+    // const {nav}=this.props.nav
     return (
-        <View style={{flex:1, marginStart:30, marginRight:30,alignItems: 'center', marginTop: 50}}>
-          <View style={{flexDirection:'row'}}>
-            <View style={{justifyContent:'center',alignItems:'center'}}>
-              <Image style={{height:15, width:15}} resizeMode="contain" source={require('../../assets/icons/Oval.png')}/>
-              <Image style={{height:15, width:15}} resizeMode="contain" source={require('../../assets/icons/Shape.png')}/>
-            </View>
+        <View style={{flex:1, marginStart:30, marginRight:30,alignItems: 'center', marginTop: 30}}>
+          <View style={styles.container}>
+            <Image style={{height:15, width:15}} resizeMode="contain" source={require('../../assets/icons/email.png')}/>
             <TextInput
               style={styles.inputs}
               placeholder="Your email"
@@ -32,14 +30,19 @@ export default class SignIn extends Component {
               value={this.state.email}
             />
           </View>
-          <TextInput
-            style={[styles.inputs, {marginTop:20}]}
-            placeholder="Password"
-            onChangeText={password => this.setState({password})}
-            value={this.state.password}
-          />
+          <View style={styles.container}>
+            <Image style={{height:15, width:15}} resizeMode="contain" source={require('../../assets/icons/password.png')}/>
+            <TextInput
+              style={styles.inputs}
+              placeholder="Password"
+              onChangeText={password => this.setState({password})}
+              value={this.state.password}
+            />
+          </View>
 
-            <TouchableOpacity style={styles.signin_button}>
+            <TouchableOpacity 
+              style={styles.signin_button}
+              onPress={ () => this.props.nav.navigate('DailyScreen')}>
               <Text style={{color:'#fff', fontSize: 17}}>Sign in</Text>
             </TouchableOpacity>
         </View>
@@ -52,8 +55,7 @@ const styles=StyleSheet.create(
     inputs:{
       height: 40,
       width: '90%',
-      borderBottomWidth: 1,
-      borderBottomColor: 'gray',
+      marginStart:10
     },
     signin_button:{
       marginTop:60, 
@@ -64,6 +66,14 @@ const styles=StyleSheet.create(
       alignItems:'center',
       height:50, 
       padding:10
+    },
+    container:{
+      flexDirection:'row',
+      justifyContent:'center',
+      alignItems:'center',
+      borderBottomWidth: 1,
+      borderBottomColor: 'gray',
+      marginTop: 20
     }
   }
 );

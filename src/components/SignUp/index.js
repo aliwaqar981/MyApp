@@ -1,11 +1,12 @@
-import React, { Component } from 'react';
 import {
+  Image,
   StyleSheet,
   Text,
   TextInput,
   TouchableOpacity,
   View
 } from 'react-native';
+import React, { Component } from 'react';
 
 export default class SignUp extends Component {
   constructor(props) {
@@ -20,31 +21,44 @@ export default class SignUp extends Component {
 
   render() {
     return (
-          <View style={{flex:1, marginStart:30, marginRight:30,alignItems: 'center', marginTop: 40}}>
-            <TextInput
-              style={[styles.inputs, {marginTop:0}]}
-              placeholder="Name"
-              onChangeText={name => this.setState({name})}
-              value={this.state.name}
-            />
-            <TextInput
-              style={styles.inputs}
-              placeholder="Email"
-              onChangeText={email => this.setState({email})}
-              value={this.state.email}
-            />
-             <TextInput
-              style={styles.inputs}
-              placeholder="Password"
-              onChangeText={password => this.setState({password})}
-              value={this.state.password}
-            />
+          <View style={{flex:1, marginStart:30, marginRight:30,alignItems: 'center', marginTop: 20}}>
+            <View style={styles.container}>
+            <Image style={{height:15, width:15}} resizeMode="contain" source={require('../../assets/icons/name.png')}/>
+
+              <TextInput
+                style={styles.inputs}
+                placeholder="Name"
+                onChangeText={name => this.setState({name})}
+                value={this.state.name}
+              />
+            </View>
+            <View style={styles.container}>
+              <Image style={{height:15, width:15}} resizeMode="contain" source={require('../../assets/icons/email.png')}/>
+              <TextInput
+                style={styles.inputs}
+                placeholder="Your email"
+                onChangeText={email => this.setState({email})}
+                value={this.state.email}
+              />
+            </View>
+            <View style={styles.container}>
+              <Image style={{height:15, width:15}} resizeMode="contain" source={require('../../assets/icons/password.png')}/>
+              <TextInput
+                style={styles.inputs}
+                placeholder="Password"
+                onChangeText={password => this.setState({password})}
+                value={this.state.password}
+              />
+          </View>
+          <View style={styles.container}>
+            <Image style={{height:15, width:15}} resizeMode="contain" source={require('../../assets/icons/phone.png')}/>
              <TextInput
               style={styles.inputs}
               placeholder="Phone number"
               onChangeText={phone => this.setState({phone})}
               value={this.state.phone}
             />
+          </View>
 
             <TouchableOpacity 
                 style={styles.signup_button}
@@ -58,10 +72,8 @@ const styles=StyleSheet.create(
   {
     inputs:{
       height: 40,
-      width: '90%',
-      borderBottomWidth: 1,
-      borderBottomColor: 'gray',
-      marginTop:20
+      width: '84%',
+      marginStart:10
     },
     signup_button:{
       marginTop:40, 
@@ -71,6 +83,14 @@ const styles=StyleSheet.create(
       alignItems:'center',
       height:50,  
       padding:10
+    },
+    container:{
+      flexDirection:'row',
+      justifyContent:'center',
+      alignItems:'center',
+      borderBottomWidth: 1,
+      borderBottomColor: 'gray',
+      marginTop: 20
     }
   }
 );

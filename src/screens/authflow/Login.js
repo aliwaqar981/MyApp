@@ -47,6 +47,7 @@ export default class Login extends Component {
               key={'0'}
               tabLabel={'Sign In'}
               style={{flex: 1}}
+              nav={this.props.navigation}
             />
             <SignUp
               key={'1'}
@@ -62,8 +63,7 @@ export default class Login extends Component {
 
 const styles = StyleSheet.create({
   container1: {
-    flex: 0.35,
-    // justifyContent:'center'
+    flex: 0.35
   },
   container2: {
     flex: 0.65,
