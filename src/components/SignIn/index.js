@@ -18,6 +18,7 @@ export default class SignIn extends Component {
   }
 
   render() {
+    const {navigate}=this.props.nav
     return (
         <View style={{flex:1, marginStart:30, marginRight:30,alignItems: 'center', marginTop: 50}}>
           <View style={{flexDirection:'row'}}>
@@ -39,7 +40,7 @@ export default class SignIn extends Component {
             value={this.state.password}
           />
 
-            <TouchableOpacity style={styles.signin_button}>
+            <TouchableOpacity style={styles.signin_button} onPress={()=>navigate('HomeScreen')}>
               <Text style={{color:'#fff', fontSize: 17}}>Sign in</Text>
             </TouchableOpacity>
         </View>

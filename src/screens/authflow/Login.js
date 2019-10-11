@@ -47,6 +47,7 @@ export default class Login extends Component {
               key={'0'}
               tabLabel={'Sign In'}
               style={{flex: 1}}
+              nav={this.props.navigation}
             />
             <SignUp
               key={'1'}

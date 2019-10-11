@@ -1,4 +1,3 @@
-import { DrawerNavigator, createAppContainer, createStackNavigator, createSwitchNavigator } from 'react-navigation';
 import React, {Component, Fragment} from 'react';
 import {
   SafeAreaView,
@@ -8,8 +7,11 @@ import {
   Text,
   View,
 } from 'react-native';
+import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 
 import Login from '../src/screens/authflow/Login'
+import Tabs from './BottomTab'
+import {createStackNavigator} from 'react-navigation-stack';
 
 const AuthStack = createSwitchNavigator({
     // SignupScreen: Signup ,
@@ -19,6 +21,15 @@ const AuthStack = createSwitchNavigator({
     initialRouteName: 'Login',
   });
   
+  const AppStack = createStackNavigator({
+    HomeScreen:{
+        screen:Tabs,
+        navigationOptions:{
+            header:null
+        }
+    },
+  })
+
 //   const AppStack = createStackNavigator({
 //     HomeScreen:{
 //         screen:Tabs,
@@ -81,7 +92,16 @@ const AuthStack = createSwitchNavigator({
   
   // BottomTabNavigatorConfig
   
-export default createAppContainer(AuthStack)
+// export default createAppContainer(AuthStack)
+export default createAppContainer(createSwitchNavigator(
+  {
+      Auth: AuthStack,
+      App: AppStack,
+  },
+  {
+      initialRouteName: 'Auth',
+  }
+))
   
 //   export default createAppContainer(createSwitchNavigator(
 //     {
