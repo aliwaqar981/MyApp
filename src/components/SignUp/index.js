@@ -20,6 +20,7 @@ export default class SignUp extends Component {
   }
 
   render() {
+    const {navigate}=this.props.nav;
     return (
           <View style={{flex:1, marginStart:30, marginRight:30,alignItems: 'center', marginTop: 20}}>
             <View style={styles.container}>
@@ -62,6 +63,7 @@ export default class SignUp extends Component {
 
             <TouchableOpacity 
                 style={styles.signup_button}
+                onPress={()=>navigate('HomeScreen')}
             ><Text style={{color:'#fff', fontSize: 17}}>Sign up</Text></TouchableOpacity>
           </View>
       );

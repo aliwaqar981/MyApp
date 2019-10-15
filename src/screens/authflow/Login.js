@@ -17,9 +17,8 @@ export default class Login extends Component {
   render() {
     return (
       <ImageBackground
-        style={{flex: 1}}
         source={require('../../assets/images/Background.jpg')}
-        style={{width: '100%', height: '100%'}}>
+        style={styles.screenBackground}>
         <View style={styles.container1}>
           <Text
             style={{
@@ -53,6 +52,7 @@ export default class Login extends Component {
               key={'1'}
               tabLabel={'Sign Up'}
               style={{flex: 1}}
+              nav={this.props.navigation}
             />
           </ScrollableTabView>
         </View>
@@ -62,6 +62,11 @@ export default class Login extends Component {
 }
 
 const styles = StyleSheet.create({
+  screenBackground:{
+    flex: 1,
+    width: '100%', 
+    height: '100%'
+  },
   container1: {
     flex: 0.35
   },

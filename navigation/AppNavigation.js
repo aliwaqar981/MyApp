@@ -3,6 +3,7 @@ import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 
 import DailyLog from '../src/screens/appflow/DailyLog';
 import Login from '../src/screens/authflow/Login'
+import Tabs from './BottomTab'
 import {createStackNavigator} from 'react-navigation-stack';
 
 const AuthStack = createSwitchNavigator({
@@ -15,18 +16,26 @@ const AuthStack = createSwitchNavigator({
   
   const AppStack = createStackNavigator({
     DailyScreen:{
-        screen: DailyLog
-    }
-  });
-  
-// export default createAppContainer(AuthStack)
-  
-  export default createAppContainer(createSwitchNavigator(
-    {
-        Auth: AuthStack,
-        App: AppStack,
+        screen:DailyLog,
+        navigationOptions:{
+            header:null
+        }
     },
-    {
-        initialRouteName: 'Auth',
+    HomeScreen:{
+      screen:Tabs,
+      navigationOptions:{
+          header:null
+      }
     }
-  ))
+
+  })
+  
+export default createAppContainer(createSwitchNavigator(
+  {
+      Auth: AuthStack,
+      App: AppStack,
+  },
+  {
+      initialRouteName: 'Auth',
+  }
+))
